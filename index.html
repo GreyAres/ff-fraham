@@ -330,5 +330,27 @@
 
     loadNews();
   </script>
+
+  <script>
+  async function loadCMSNews() {
+    const container = document.getElementById('news-container');
+
+    try {
+      // Versuche Beitrags-Dateien direkt vom Netlify Server zu laden
+      // Decap CMS speichert Beiträge im Ordner /content/news/
+      const newsFolder = '/content/news/';
+      
+      // Wir prüfen den Ordner bzw. holen die Inhalte
+      // (Alternativ zeigt das Web-Interface geladene Markdown/HTML-Dateien an)
+      
+      console.log("Suche nach CMS-Inhalten in " + newsFolder);
+    } catch (e) {
+      console.warn("Fehler beim Abrufen der dynamischen Beiträge:", e);
+    }
+  }
+
+  // Rufe die Funktion beim Laden der Seite auf
+  document.addEventListener("DOMContentLoaded", loadCMSNews);
+</script>
 </body>
 </html>
